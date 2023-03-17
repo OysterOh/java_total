@@ -1,7 +1,5 @@
 package quiz03;
 
-import java.util.Arrays;
-
 public class MyCart {
 
 	private int money; //내가 가지고있는 돈
@@ -31,7 +29,6 @@ public class MyCart {
       add(상품)메서드 호출.
 	 */
 
-
 	private void add(Product p) {
 
 		if(i>=cart.length) {
@@ -56,10 +53,6 @@ public class MyCart {
 //			i++;
 //		}
 //		info();
-		
-		
-		
-		
 		
 	}
 	/*
