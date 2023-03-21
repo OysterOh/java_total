@@ -33,8 +33,7 @@ public class MainClass {
 		h1.pet = "fish";
 		h1.characterInfo();
 		
-		
-				
+			
 	}
 
 }
