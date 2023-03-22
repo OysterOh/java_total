@@ -71,14 +71,14 @@ public class MyCart {
 
 
 	public void info() {
-		int sum = 0;
+		int sum = 0;  //총 상품의 합계를 담아줄 변수
 		for(int a=0; a<i; a++) {
 				sum += cart[a].price;
 				System.out.println("장바구니 안에 담긴 물건: " + cart[a].name);
 		}
 		//		System.out.println("장바구니 안에 담긴 물건: " + cart.toString()); //장바구니 안 물건의 목록
-		System.out.println("물건들 가격의 합: " + sum);
-		System.out.println("남은 금액: " + (money));  //남은금액 = 내 돈 - 장바구니 안 물건의 가격
+		System.out.println("물건들 가격의 합: " + sum + "원");
+		System.out.println("남은 금액: " + this.money + "원");  //남은금액 = 내 돈 - 장바구니 안 물건의 가격
 	}
 	/*
     - public void info()
