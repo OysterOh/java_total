@@ -19,6 +19,7 @@ public class MainClass {
 			case 1:
 				p.inputPoints(sList);
 				break;
+				
 			case 2:
 				if(sList.isEmpty()) {
 					System.out.println("등록된 학생이 없습니다. 먼저 등록부터 하세요.");
@@ -26,15 +27,19 @@ public class MainClass {
 					p.showAllPoints(sList);					
 				}
 				break;
+				
 			case 3:
 				p.searchPoint(sList);
 				break;
+				
 			case 4:
 				p.modifyPoint(sList);
 				break;
+				
 			case 5:
 				p.deletePoint(sList);
 				break;
+				
 			case 6:
 				System.out.println("프로그램을 종료합니다.");
 				Student.close();

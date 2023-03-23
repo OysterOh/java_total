@@ -25,6 +25,10 @@ public class Point {
 	}
 
 
+	//to 경민쌤
+	//저는 이런저런 실수가 많아서 과제 사이사이에 뜬금없는 주석들이 많습니다. 
+	//왜 이런걸 쓸까 싶으셔도 너그러이 이해해주시길 부탁드릴게요.
+
 	//프로그램 메뉴 정보를 보여줄 메서드
 	public int menuInfo() {
 		System.out.println("\n*** 성적 관리 프로그램 ***");
@@ -95,12 +99,22 @@ public class Point {
 		System.out.print("> ");
 		String stuId = sc.next();
 
-		for(Student student: students) {
-			if(student.getStuId().equals(students)) {
-				System.out.printf("%4s %6s %6d점 %5d점 %7d점 %7d점 %7.2f점 %6s\n"
-						, ((Student) students).getStuId(), ((Student) students).getName(), ((Student) students).getKor(), ((Student) students).getEng(), 
-						((Student) students).getMath(), ((Student) students).getTotal(), ((Student) students).getAverage(), ((Student) students).getGrade());
-			} else {
+		//		for(Student student: students) {
+		//			if(student.getStuId().equals(students)) {
+		//				System.out.printf("%4s %6s %6d점 %5d점 %7d점 %7d점 %7.2f점 %6s\n"
+		//						, ((Student) students).getStuId(), ((Student) students).getName(), ((Student) students).getKor(), ((Student) students).getEng(), 
+		//						((Student) students).getMath(), ((Student) students).getTotal(), ((Student) students).getAverage(), ((Student) students).getGrade());
+		//			} else {
+		//				System.out.println("찾는 학번이 존재하지 않아서 검색하지 못했습니다");
+		//			}
+		//		}
+
+		/////////////////////////////////////////////////
+		int i = 0;
+		for(i=0; i<students.size(); i++) {
+			if(stuId.equals(students.get(i).getStuId()))
+				break;
+			else {
 				System.out.println("찾는 학번이 존재하지 않아서 검색하지 못했습니다");
 			}
 		}
@@ -118,25 +132,40 @@ public class Point {
 	public void modifyPoint(List<Student> students) {
 		System.out.print("학번을 입력하세요: ");
 		String stuId = sc.next();
-		
-		//해당 학번과 일치하는 학생 객체를 리스트에서 찾기
-		
-		System.out.println("점수를 다시 입력해주세요.");
-		System.out.print("국어: ");
-		this.kor = sc.nextInt();
-		System.out.print("영어: ");
-		this.eng = sc.nextInt();
-		System.out.print("수학: ");
-		this.math = sc.nextInt();
-		
-		System.out.println("=====================================");
-		System.out.printf("%4s %6s %6d점 %5d점 %7d점 %7d점 %7.2f점 %6s\n"
-				, this.stuId, this.name, this.kor, this.eng, 
-				this.math, this.total, this.average, this.grade);
-		
-		if(!students.contains(stuId)) {
-			System.out.println("찾는 학번이 없어서 검색하지 못했습니다.");
+
+		int i = 0;
+		for(i=0; i<students.size(); i++) {
+			if(stuId.equals(students.get(i).getStuId()))
+				break;
+			else {
+				System.out.println("찾는 학번이 존재하지 않아서 검색하지 못했습니다");
+			}
 		}
+
+		//해당 학번과 일치하는 학생 객체를 리스트에서 찾기
+
+		//		if(!students.contains(stuId)) {
+		//			System.out.println("찾는 학번이 없어서 검색하지 못했습니다.");
+		//		}
+
+		try {
+			System.out.println("점수를 다시 입력해주세요.");
+			System.out.print("국어: ");
+			this.kor = sc.nextInt();
+			System.out.print("영어: ");
+			this.eng = sc.nextInt();
+			System.out.print("수학: ");
+			this.math = sc.nextInt();
+
+			System.out.println("=====================================================================");
+			for(int a=0;a<students.size();a++){
+				System.out.printf("%4s %6s %6d점 %5d점 %7d점 %7d점 %7.2f점 %6s\n"
+						, students.get(i).getStuId(), students.get(i).getName(), students.get(i).getKor(), students.get(i).getEng(), 
+						students.get(i).getMath(), students.get(i).getTotal(), students.get(i).getAverage(), students.get(i).getGrade());
+				System.out.println("=====================================================================");
+			} }catch (Exception e) {
+				System.out.println("잘못된 입력값입니다.");		
+			}
 		/*
 		 - 학번을 먼저 입력받으세요.
 		 - 해당 학번과 일치하는 학생 객체를 리스트에서 찾아내어
@@ -145,7 +174,7 @@ public class Point {
 		  점수를 수정했다면 그 학생의 총점, 평균, 학점도 
 		  새롭게 계산해 주셔야 합니다.
 
-		 - 찾는 학번이 없을 시 검색하지 못했다는 메세지를 출력해 주세요.
+		 - 찾는 학번이 없을 시 검색하지 못했다는 메세지를 출력해 주세요.  try catch 
 		 */
 
 
@@ -153,26 +182,40 @@ public class Point {
 
 	//5. 학생 정보를 삭제하는 메서드
 	public void deletePoint(List<Student> students) {
-		
-		System.out.print("학번을 입력하세요: ");
+
+		System.out.print("삭제할 학생의 학번을 입력하세요: ");
 		String stuId = sc.next();
 		////해당 학번과 일치하는 학생 객체를 리스트에서 찾기////
-		if(!students.contains(stuId)) {
-			System.out.println(stuId + "님의 정보가 없습니다.");
-			return;
-		}
+		//		if(!students.contains(stuId)) {
+		//			System.out.println(stuId + "님의 정보가 없습니다.");
+		//			return;
+		//		}
+
 		System.out.print(stuId + "님의 정보를 삭제합니다.[Y/N]");
 		String answer = sc.next();
-		
+
 		if(answer.equals("Y")) {
 			students.remove(stuId);
 			System.out.println(stuId + "삭제");
+			int i = 0;
+			for(i=0; i<students.size(); i++) {
+				if(stuId.equals(students.get(i).getStuId()))
+					break;
+				else {
+					System.out.println("찾는 학번이 존재하지 않아서 검색하지 못했습니다");
+				} 
+			}
+			students.remove(i);
 		} else if(answer.equals("N")) {
 			System.out.println("삭제를 취소합니다.");
 		} else {
 			System.out.println("값을 잘못 입력하셨습니다.");
 		}
 		return;
+
+
+
+
 		/*
 		 - 학번을 입력받아서, 해당 학번과 일치하는 학생 객체를
 		  리스트에서 찾아내어 그 학생의 모든 정보를 삭제해야 합니다.
