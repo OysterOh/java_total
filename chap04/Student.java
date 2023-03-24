@@ -14,13 +14,13 @@ public class Student {
 	private String grade;
 
 	private static Scanner sc = new Scanner(System.in);
-	
+
 	public Student() {
 		//객체가 생성되자마자 바로 정보 입력을 진행합니다.
 		inputStuInfo();
 		calcTotAvgGrade();
 	}
-	
+
 
 	//학생 정보를 받아서 객체화 시킬 메서드
 	public void inputStuInfo() {
@@ -35,13 +35,23 @@ public class Student {
 		혹시라도 정수가 아닌 다른 값이 들어올 시에 
 		예외처리를 해서, 다시 점수를 입력받을 수 있는
 		무한 루프를 구성해 주세요.
-		*/	
-		System.out.print("국어: ");
-		this.kor = sc.nextInt();
-		System.out.print("영어: ");
-		this.eng = sc.nextInt();
-		System.out.print("수학: ");
-		this.math = sc.nextInt();
+		 */	
+
+
+		while(true) {
+			try {
+				System.out.print("국어: ");
+				this.kor = sc.nextInt();
+				System.out.print("영어: ");
+				this.eng = sc.nextInt();
+				System.out.print("수학: ");
+				this.math = sc.nextInt();
+				break;
+			} catch (Exception e) {
+				System.out.println("잘못된 값입니다.");
+				sc.nextLine();
+			}
+		}
 	}
 
 	//총점, 평균, 학점을 계산하는 메서드

@@ -49,6 +49,7 @@ public class HashMapExample {
 		//map의 크기를 확인하는 메서드: size()
 		System.out.println("map의 크기: " + map.size());
 		
+		
 		//Map에서 key들만 추출하는 메서드: keySet()
 		//모든 key들을 Set에 담아서 반환합니다.
 		Set<String> keys = map.keySet();

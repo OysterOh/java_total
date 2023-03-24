@@ -89,7 +89,13 @@ public class Point {
 		 3. 우리 반 평균을 가장 아랫부분에 출력해야 합니다.
 		 */
 
+		double totalAvg = 0.0;
+		for(Student stu : aList) {
+			stu.outputStuInfo();
+			totalAvg += stu.getAverage();
+		}
 
+		System.out.println("반평균: " + totalAvg/aList.size());
 	}
 
 	//3. 개별 성적 조회 로직을 처리할 메서드
@@ -126,6 +132,25 @@ public class Point {
 		  메세지를 출력해 주세요.
 		 */
 
+		//boolean flag = false;
+		//		
+		//		for(Student stu : students) {
+		//			if(stuNum.equals(stu.getStuId())) {
+		//				System.out.printf("%s님의 성적 정보를 출력합니다.\n"
+		//						, stu.getName());
+		//				showPointUI();
+		//				stu.outputStuInfo();
+		//				flag = true;
+		//				break;
+		//			}
+		//		}
+		//		
+		//		if(!flag) {
+		//			System.out.println("입력한 학번과 일치하는 학생 정보가 없습니다.");
+		//		}
+		//		
+
+
 	}
 
 	//4. 학생의 개인 성적 정보를 수정하는 메서드
@@ -135,8 +160,9 @@ public class Point {
 
 		int i = 0;
 		for(i=0; i<students.size(); i++) {
-			if(stuId.equals(students.get(i).getStuId()))
-				break;
+			if(stuId.equals(students.get(i).getStuId())) {
+				System.out.println(students.get(i).getName() + "의 정보 수정");
+				break;}
 			else {
 				System.out.println("찾는 학번이 존재하지 않아서 검색하지 못했습니다");
 			}
@@ -147,7 +173,7 @@ public class Point {
 		//		if(!students.contains(stuId)) {
 		//			System.out.println("찾는 학번이 없어서 검색하지 못했습니다.");
 		//		}
-
+		while(true) {
 		try {
 			System.out.println("점수를 다시 입력해주세요.");
 			System.out.print("국어: ");
@@ -156,16 +182,19 @@ public class Point {
 			this.eng = sc.nextInt();
 			System.out.print("수학: ");
 			this.math = sc.nextInt();
-
 			System.out.println("=====================================================================");
+			
 			for(int a=0;a<students.size();a++){
 				System.out.printf("%4s %6s %6d점 %5d점 %7d점 %7d점 %7.2f점 %6s\n"
 						, students.get(i).getStuId(), students.get(i).getName(), students.get(i).getKor(), students.get(i).getEng(), 
 						students.get(i).getMath(), students.get(i).getTotal(), students.get(i).getAverage(), students.get(i).getGrade());
 				System.out.println("=====================================================================");
+				break;
 			} }catch (Exception e) {
-				System.out.println("잘못된 입력값입니다.");		
+				System.out.println("잘못된 입력값입니다.");	
+				sc.nextLine();
 			}
+		}
 		/*
 		 - 학번을 먼저 입력받으세요.
 		 - 해당 학번과 일치하는 학생 객체를 리스트에서 찾아내어
@@ -203,15 +232,16 @@ public class Point {
 					break;
 				else {
 					System.out.println("찾는 학번이 존재하지 않아서 검색하지 못했습니다");
-				} 
+				} return;
 			}
 			students.remove(i);
 		} else if(answer.equals("N")) {
 			System.out.println("삭제를 취소합니다.");
+			return;
 		} else {
 			System.out.println("값을 잘못 입력하셨습니다.");
-		}
-		return;
+		}return;
+		
 
 
 
