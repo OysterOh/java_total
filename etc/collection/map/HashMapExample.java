@@ -36,6 +36,7 @@ public class HashMapExample {
 		
 		//Map 내부에 key의 존재 유무를 확인하는 메서드: ContainsKey(key)
 		System.out.println(map.containsKey("어흥이"));
+		//true / false 값 도출
 		
 		//Map 내부의 값을 참조하는 법: get(key)
 		String name = "멍멍이";

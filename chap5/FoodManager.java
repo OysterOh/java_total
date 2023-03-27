@@ -1,4 +1,4 @@
-package chap05.collection.map;
+package chap5;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +14,7 @@ public class FoodManager {
 
 		System.out.println("*** 음식점 메뉴판 관리 프로그램 ***");
 
-		outer: while(true) {
+		while(true) {
 
 			System.out.println("# 1. 메뉴 등록");
 			System.out.println("# 2. 메뉴 전체보기");
@@ -32,7 +32,7 @@ public class FoodManager {
 				System.out.print("가격: ");
 				int newPrice = sc.nextInt();
 				foods.put(newMenu, newPrice);
-
+				//list / set에는 add
 				System.out.println(newMenu + " 메뉴가 등록되었습니다.");
 
 				/*
@@ -44,14 +44,17 @@ public class FoodManager {
 
 			} else if(menu == 2) {  //메뉴 전체보기
 				if(foods.size()==0) {
-					System.out.println("메뉴부터 먼저 등록해 주세요!");break;
+			  //if(foods.isEmpty())
+					System.out.println("메뉴부터 먼저 등록해 주세요!");
+//					break;
 				} 
 				else  {
 					Set<String> food = foods.keySet();
 					//Map에서 key들만 추출하는 메서드: keySet()
 					//모든 key들을 Set에 담아서 반환합니다.
 					for(String s: food) {
-						System.out.println("메뉴: " + s + "가격: " + foods.get(s));
+    			  //for(String s: foods.keySet())
+						System.out.println("메뉴: " + s + " 가격: " + foods.get(s));
 					}
 				}
 				/*
@@ -68,7 +71,7 @@ public class FoodManager {
 				    메뉴명 : 가격....*/
 
 
-
+				System.out.println("번호를 입력하세요.");
 				System.out.println("# 1. 수정");
 				System.out.println("# 2. 삭제");
 				System.out.println("# 3. 취소");
@@ -78,7 +81,7 @@ public class FoodManager {
 				case 1: 
 					if(foods.size()==0) {
 						System.out.println("메뉴 먼저 등록해주세요");
-						break;
+						
 					} 
 
 					Set<String> food = foods.keySet();
@@ -97,10 +100,12 @@ public class FoodManager {
 						System.out.print("가격: ");
 						int newPrice = sc.nextInt();
 
-						foods.put((String) name, newPrice);
+						foods.put(name, newPrice);
 						System.out.println(name + "가 저장되었습니다.");
+					} else {
+						System.out.println("존재하지 않는 메뉴입니다.");
 					}
-
+					break;
 
 				case 2: 
 					String dName;
@@ -108,12 +113,17 @@ public class FoodManager {
 					System.out.print("삭제할 메뉴를 입력하세요: ");
 					dName = sc.next();
 					if(foods.containsKey(dName)) {
-						System.out.println(dName + "가 삭제되었습니다.");
 						foods.remove(dName);
-					}  
+						System.out.println(dName + " 메뉴가 삭제되었습니다.");						
+					}
+					else {
+						System.out.println("존재하지 않는 메뉴입니다.");  
+					} break;
 				case 3: {
-					break;
-				}
+					System.out.println("취소합니디.");
+				} break;
+				default :
+					System.out.println("메인 메뉴로 돌아갑니다.");
 				}
 				/*메뉴를 모두 출력 후에 선택지를 제공하세요.
 				  (1. 수정 | 2. 삭제 | 3. 취소)
@@ -130,10 +140,12 @@ public class FoodManager {
 			} else if(menu == 3) {
 				System.out.print("프로그램 종료하시겠습니까? [Y/N]: ");
 				String answer = sc.next();
-				if(answer.equals("Y")) {
+				if(answer.toUpperCase().equals("Y")) {
+			  //if(answer.toLowerCase().equals("y"))
 					System.out.println("프로그램을 종료합니다.");
 					sc.close();
-					break outer;
+					//break;
+			      System.exit(0);
 				} else if (answer.equals("N")) {
 					//					return;
 				} else {
