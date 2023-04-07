@@ -26,7 +26,7 @@ public class WhileExample2 {
 			n += 8;          // n++;
 		}
 
-		System.out.println();            //그냥 줄바꿈
+		System.out.println();           
 
 		//1~100까지의 정수 중 4의 배수이면서
 		//8의 배수는 아닌 수를 가로로 출력
@@ -38,17 +38,17 @@ public class WhileExample2 {
 			b++;
 		}
 
-		/*
+		
 		int c = 4;
 		while(c <= 100) {
 			if(c%4 == 0) {
-			  if(i % 8 != 0) {
-			   System.out.print(i + "  ");
+			  if(a % 8 != 0) {
+			   System.out.print(a + "  ");
 			   }
 		}
 		c++;
 	}
-		 */
+		 
         System.out.println();
         
         

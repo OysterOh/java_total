@@ -57,7 +57,8 @@ public class MethodQuiz02 {
 			for(int j=0; j<temp.length; j++) {
 				temp[j] = foods[j];
 			}
-			foods = temp; temp=null;
+			foods = temp; 
+			temp = null;
 		}
 	}
 
@@ -98,8 +99,6 @@ public class MethodQuiz02 {
 		//2번 인덱스 데이터를 닭갈비로 수정.
 		modify(2, "닭갈비");
 		printfood();
-
-
 
 	}
 

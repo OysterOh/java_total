@@ -50,6 +50,7 @@ public class FoodManager {
 				} 
 				else  {
 					Set<String> food = foods.keySet();
+					//foods(newMenu, newPrice)
 					//Map에서 key들만 추출하는 메서드: keySet()
 					//모든 key들을 Set에 담아서 반환합니다.
 					for(String s: food) {
@@ -96,7 +97,7 @@ public class FoodManager {
 					name = sc.next();
 					//메뉴수정
 					if(foods.containsKey(name)) {
-
+						//<key, value>
 						System.out.print("가격: ");
 						int newPrice = sc.nextInt();
 
@@ -108,10 +109,10 @@ public class FoodManager {
 					break;
 
 				case 2: 
-					String dName;
+					
 					//메뉴삭제
 					System.out.print("삭제할 메뉴를 입력하세요: ");
-					dName = sc.next();
+					String dName = sc.next();
 					if(foods.containsKey(dName)) {
 						foods.remove(dName);
 						System.out.println(dName + " 메뉴가 삭제되었습니다.");						

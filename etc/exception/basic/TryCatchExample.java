@@ -20,7 +20,7 @@ public class TryCatchExample {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.print("정수1: ");
-		int i =sc.nextInt();
+		int i = sc.nextInt();
 		System.out.print("정수2: ");
 		int j = sc.nextInt();
 		
