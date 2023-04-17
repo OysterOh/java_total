@@ -28,6 +28,13 @@ public class Solution2 {
 				System.out.print("★");
 			    System.out.println();
 		}
+		
+		for(int n : nums) {
+			for(int i=1; i<=n; i++) {
+				System.out.print("★");
+			}
+			System.out.println();
+		}
 
 	}
 
